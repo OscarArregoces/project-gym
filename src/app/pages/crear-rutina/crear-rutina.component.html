@@ -1,1 +1,41 @@
-<p>crear-rutina works!</p>
+<p-card [style]="{'width': '80%', 'margin':'auto'}">
+    <form [formGroup]="form">
+        <div class="grid p-3">
+            <div class="col-12 md:col-6 lg:col-6">
+                <input placeholder="Titulo" [style]="{'width':'100%'}" type="text" pInputText
+                    [formControl]="form.controls.titulo" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-6">
+                <p-multiSelect placeholder="Dias" [style]="{'width':'100%'}" [options]="dias"
+                    [formControl]="form.controls.dias" optionLabel="dia"></p-multiSelect>
+            </div>
+            <div class="col-12 md:col-6 lg:col-6">
+                <p-dropdown [style]="{'width':'100%'}" placeholder="Selecciona un ejercicio" [options]="tipoEjercicio"
+                    [formControl]="form.controls.ejercicios" (onChange)="onDropdownChange()"></p-dropdown>
+            </div>
+            <div class="col-12 md:col-6 lg:col-6 flex justify-content-center">
+                <button (click)="handleSutmit()" [style]="{'max-width':'400px', 'width':'100%'}" pButton pRipple
+                    label="Guardar" class="p-button-success"></button>
+            </div>
+        </div>
+    </form>
+</p-card>
+
+<div *ngIf="ejercicios.length !==0 ;  else elseBlock " class="flex flex-wrap justify-content-center mt-5"
+    [style]="{'width': '80%', 'margin':'auto'}">
+    <div [style]="{ 'max-width': '25rem', 'margin':'5px' }" *ngFor="let ejercicio of ejercicios">
+        <app-card-exercie [ejercicio]="ejercicio"></app-card-exercie>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <p class="text-center">No hay ejercicios aún</p>
+</ng-template>
+
+
+<button (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button (click)="decrement()">Decrement</button>
+
+<button (click)="reset()">Reset Counter</button>

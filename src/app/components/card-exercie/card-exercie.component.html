@@ -1,0 +1,29 @@
+<p-card class="text-center" [style]="{ 'max-width': '25rem' }">
+    <ng-template pTemplate="header">
+        <img title="Ejercicio" alt="Ejercicio" [src]="ejercicio.img" />
+        <h1>{{ ejercicio.type}}</h1>
+    </ng-template>
+    <div>
+        <p-button icon="pi pi-check" styleClass="p-button-success"></p-button>
+        <p-button icon="pi pi-times" styleClass="p-button-danger"
+            [style]="{ 'margin-left': '.5em' }"></p-button>
+    </div>
+</p-card>
+<!-- <div class="text-center" [style]="{ 'max-width': '25rem', 'border':'1px solid red' }">
+    <div class="grid">
+        <div class="col-12">
+            <div class="flex justify-content-center flex-column">
+                <img alt="Card" [src]="ejercicio.img" />
+                <h1>{{ ejercicio.type}}</h1>
+            </div>
+        </div>
+        <div class="col-12">
+            <div>
+                <p-button icon="pi pi-check" styleClass="p-button-success"></p-button>
+                <p-button icon="pi pi-times" styleClass="p-button-danger"
+                    [style]="{ 'margin-left': '.5em' }"></p-button>
+            </div>
+        </div>
+
+    </div>
+</div> -->
