@@ -1,19 +1,26 @@
-<div class="grid">
-    <div class="col-12 flex flex-wrap flex-column">
-        <p-card [style]="{ width: '360px' }">
-            <p-button (onClick)="handleButton()" icon="pi pi-user-plus" label="Nuevo" styleClass="p-button-secondary"></p-button>
-        </p-card>
-        <p-card [style]="{ width: '360px' }">
-            <ng-template pTemplate="header">
-                <img alt="Card" src="assets/image_ejercicios/abdomen/3.jpg" />
-                <h1>Lunes</h1>
-                <p>Abdominales y Pectoral</p>
-            </ng-template>
-            <div>
-                <p-button icon="pi pi-eye" styleClass="p-button-secondary"></p-button>
-                <p-button icon="pi pi-trash" styleClass="p-button-danger"
-                    [style]="{ 'margin-left': '.5em' }"></p-button>
+<div class="grid ">
+    <div class="col-12">
+        <div *ngIf="ejercicios.length > 0 ;  else elseBlock " class="flex flex-wrap justify-content-center mt-5"
+            [style]="{'width': '80%', 'margin':'auto'}">
+            <div [style]="{ 'max-width': '25rem', 'margin':'5px' }">
+                <p-card class="text-center" [style]="{ 'max-width': '25rem' }">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" src="assets/image_ejercicios/abdomen/3.jpg" />
+                        <h1>Crear</h1>
+                    </ng-template>
+                    <div>
+                        <p-button (onClick)="handleButton()" icon="pi pi-user-plus" label="Nuevo"
+                            styleClass="p-button-secondary"></p-button>
+                    </div>
+                </p-card>
             </div>
-        </p-card>
+            <div [style]="{ 'max-width': '25rem', 'margin':'5px' }" *ngFor="let ejercicio of ejercicios">
+                <app-card-rutine></app-card-rutine>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <p class="text-center">No hay rutinas aún</p>
+        </ng-template>
+
     </div>
 </div>

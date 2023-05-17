@@ -4,8 +4,11 @@
         <h1>{{ ejercicio.type}}</h1>
     </ng-template>
     <div>
-        <p-button [disabled]="!status" (onClick)="addExercie()" icon="pi pi-check" styleClass="p-button-success"></p-button>
-        <p-button [disabled]="status" (onClick)="removeExercie()" icon="pi pi-times" styleClass="p-button-danger"
+        <p-button  [disabled]="!status" (onClick)="addExercie()" icon="pi pi-check" styleClass="p-button-success"></p-button>
+        <p-button  [disabled]="status" (onClick)="removeExercie()" icon="pi pi-times" styleClass="p-button-danger"
             [style]="{ 'margin-left': '.5em' }"></p-button>
     </div>
 </p-card>
+
+<!-- [style]="{'display': status ? 'block':'none'}"
+[style]="{'display': status ? 'none':'block'}" -->
