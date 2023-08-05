@@ -1,7 +1,84 @@
-p-card {
-    text-align: center;
-    div{
-        display: flex;
-        justify-content: center;
-    }
+#slogan {
+    font-size: 50px;
 }
+
+.card-dashboard {
+    border-radius: 5px;
+    width: 25rem;
+    height: 30rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	transition: transform 0.2s;
+}
+.card-dashboard:hover {
+	transform: scale(1.1); 
+}
+
+.container-cardNoRoutines .card-dashboard{
+    animation: agrandar 2s normal;
+}
+
+.card-dashboard img {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.container-cardNoRoutines{
+    display: grid;
+    place-items: center;
+}
+
+
+.container-btnAdd{
+	width: 100%;
+	height: calc(480px - 285px);
+	display: grid;
+	place-items: center;
+}
+@keyframes agrandar {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(-45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+// :host ::ng-deep .p-button-secondary{
+//     background-color: red;
+// }

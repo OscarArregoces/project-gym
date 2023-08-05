@@ -1,11 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { addExercie, removeExercie, saveExercie } from '../actions/counter.actions';
-import { state } from '@angular/animations';
+import { addExercie, addRoutine, removeExercie } from '../actions/counter.actions';
 import { AppState, Ejercicio } from 'src/app/core/models/app.model';
 
 
 export const initialState: AppState = {
   ejercicios: [],
+  // savedRoutines:{
+  //   rutines:[]
+  // }
 }
 
 export const counterReducer = createReducer(
@@ -17,9 +19,11 @@ export const counterReducer = createReducer(
     return state
   }),
 
-  on(removeExercie, (state, { ejercicio }) => ({ ...state, ejercicios: state.ejercicios.filter((exercie: Ejercicio) => exercie.id === ejercicio.id && exercie.type === ejercicio.type) }))
-  // on(saveExercie, (state) => ),
-)
+  on(removeExercie, (state, { ejercicio }) => ({ ...state, ejercicios: state.ejercicios.filter((exercie: Ejercicio) => exercie.id === ejercicio.id && exercie.type === ejercicio.type) })),
+  
+  // on(addRoutine, (state, { savedRoutine }) => ({ ...state, savedRoutine })),
 
+
+)
 
 

@@ -1,0 +1,17 @@
+.main-content{
+    padding: 5rem;
+}
+
+.main-content .content-info p{
+    font-size: 20px;
+}
+
+.content-info{
+    width: 100%;
+    height: 10rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

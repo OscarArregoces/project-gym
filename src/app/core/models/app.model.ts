@@ -1,11 +1,17 @@
 export interface AppState {
-    ejercicios: Ejercicio[]
+    ejercicios: Ejercicio[],
+    // savedRoutines: SavedRoutines
 }
 
-export interface ExercieSaved {
-    titulo: string,
+export interface Routine {
+    id: number;
+    titulo: any,
     dias: any,
-    rutinas: any
+    fecha:any,
+    rutina: any,
+}
+export interface SavedRoutines{
+    rutines: Routine[]
 }
 
 export interface Ejercicio {

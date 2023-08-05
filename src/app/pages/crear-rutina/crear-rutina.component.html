@@ -3,7 +3,7 @@
         <div class="grid p-3">
             <div class="col-12 md:col-6 lg:col-6">
                 <input placeholder="Titulo" [style]="{'width':'100%'}" type="text" pInputText
-                    [formControl]="form.controls.titulo" />
+                    [formControl]="form.controls.titulo" [maxlength]="20" />
             </div>
             <div class="col-12 md:col-6 lg:col-6">
                 <p-multiSelect placeholder="Dias" [style]="{'width':'100%'}" [options]="dias"

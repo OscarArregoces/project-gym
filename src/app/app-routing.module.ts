@@ -16,7 +16,15 @@ const routes: Routes = [
     component: CrearRutinaComponent
   },
   {
-    path: 'ver-rutina',
+    path: 'ver-rutina/:idRoutine',
+    component: VerRutinaComponent
+  },
+  {
+    path: 'ejercicios',
+    component: VerRutinaComponent
+  },
+  {
+    path: 'dev-info',
     component: VerRutinaComponent
   }
 ];

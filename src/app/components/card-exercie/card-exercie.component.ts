@@ -24,9 +24,7 @@ export class CardExercieComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select('count').subscribe(ejercicios => this.ejercicios = ejercicios);
-
     this.verificatedExercie();
-
   }
   verificatedExercie() {
     this.ejercicios.ejercicios.forEach((ejercicio: Ejercicio) => {

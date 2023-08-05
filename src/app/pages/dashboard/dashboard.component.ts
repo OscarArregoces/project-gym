@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState, SavedRoutines } from 'src/app/core/models/app.model';
+import { addRoutine } from 'src/app/state/actions/counter.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,21 +11,22 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  public ejercicios!:any [];
-
+  public savedRoutines!: SavedRoutines;
   constructor(
-    private router: Router
-  ){}
+    private router: Router,
+    private store: Store<{ count: AppState }>,
+
+  ) { }
   ngOnInit(): void {
-    let saved = JSON.parse(localStorage.getItem('saved') as string)
+    this.savedRoutines = JSON.parse(localStorage.getItem('savedRoutines')!)
+    this.store.dispatch(addRoutine({ savedRoutine: this.savedRoutines }))
 
-
-    if(saved) this.ejercicios = saved.rutinas;
-
-    console.log(saved)
+    if (!this.savedRoutines) {
+      this.savedRoutines = { rutines: [] }
+    }
   }
 
-  handleButton(){
+  handleButton() {
     this.router.navigateByUrl('crear-rutina')
   }
 }

@@ -1,26 +1,32 @@
 <div class="grid ">
     <div class="col-12">
-        <div *ngIf="ejercicios.length > 0 ;  else elseBlock " class="flex flex-wrap justify-content-center mt-5"
-            [style]="{'width': '80%', 'margin':'auto'}">
-            <div [style]="{ 'max-width': '25rem', 'margin':'5px' }">
-                <p-card class="text-center" [style]="{ 'max-width': '25rem' }">
-                    <ng-template pTemplate="header">
-                        <img alt="Card" src="assets/image_ejercicios/abdomen/3.jpg" />
-                        <h1>Crear</h1>
-                    </ng-template>
-                    <div>
-                        <p-button (onClick)="handleButton()" icon="pi pi-user-plus" label="Nuevo"
-                            styleClass="p-button-secondary"></p-button>
-                    </div>
-                </p-card>
+        <h1 id="slogan" class="text-center">¡Crear rutinas nunca fue tan facil!</h1>
+    </div>
+    <div class="col-12">
+        <div *ngIf="savedRoutines.rutines.length > 0 ;  else elseBlock" class="flex flex-wrap justify-content-center">
+
+            <div class="card-dashboard m-3">
+                <img alt="Card" src="assets/image_ejercicios/abdomen/3.jpg" />
+                <div class="container-btnAdd">
+                    <p-button (onClick)="handleButton()" icon="pi pi-plus" label="Nuevo"
+                        styleClass="p-button-secondary"></p-button>
+                </div>
             </div>
-            <div [style]="{ 'max-width': '25rem', 'margin':'5px' }" *ngFor="let ejercicio of ejercicios">
-                <app-card-rutine></app-card-rutine>
+            <div class="m-3" *ngFor="let rutines of savedRoutines.rutines">
+                <app-card-rutine [rutine]="rutines"></app-card-rutine>
             </div>
         </div>
-        <ng-template #elseBlock>
-            <p class="text-center">No hay rutinas aún</p>
-        </ng-template>
-
     </div>
 </div>
+
+<ng-template #elseBlock>
+    <div class="container-cardNoRoutines">
+        <div class="card-dashboard m-3">
+            <img alt="Card" src="assets/image_ejercicios/abdomen/3.jpg" />
+            <div class="container-btnAdd">
+                <p-button (onClick)="handleButton()" icon="pi pi-plus" label="Nuevo"
+                    styleClass="p-button-secondary"></p-button>
+            </div>
+        </div>
+    </div>
+</ng-template>
