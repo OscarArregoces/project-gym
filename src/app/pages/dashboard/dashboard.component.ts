@@ -18,8 +18,9 @@ export class DashboardComponent implements OnInit {
 
   ) { }
   ngOnInit(): void {
-    this.savedRoutines = JSON.parse(localStorage.getItem('savedRoutines')!)
-    this.store.dispatch(addRoutine({ savedRoutine: this.savedRoutines }))
+    this.savedRoutines = JSON.parse(localStorage.getItem('savedRoutines')!);
+    this.store.dispatch(addRoutine({ savedRoutines: this.savedRoutines }));
+    this.store.select('count').subscribe( (store:AppState) =>  this.savedRoutines = store.savedRoutines)
 
     if (!this.savedRoutines) {
       this.savedRoutines = { rutines: [] }

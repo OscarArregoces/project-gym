@@ -1,6 +1,6 @@
 export interface AppState {
     ejercicios: Ejercicio[],
-    // savedRoutines: SavedRoutines
+    savedRoutines: SavedRoutines
 }
 
 export interface Routine {

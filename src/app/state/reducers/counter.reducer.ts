@@ -5,9 +5,9 @@ import { AppState, Ejercicio } from 'src/app/core/models/app.model';
 
 export const initialState: AppState = {
   ejercicios: [],
-  // savedRoutines:{
-  //   rutines:[]
-  // }
+  savedRoutines:{
+    rutines:[]
+  }
 }
 
 export const counterReducer = createReducer(
@@ -21,7 +21,7 @@ export const counterReducer = createReducer(
 
   on(removeExercie, (state, { ejercicio }) => ({ ...state, ejercicios: state.ejercicios.filter((exercie: Ejercicio) => exercie.id === ejercicio.id && exercie.type === ejercicio.type) })),
   
-  // on(addRoutine, (state, { savedRoutine }) => ({ ...state, savedRoutine })),
+  on(addRoutine, (state, { savedRoutines }) => ({ ...state, savedRoutines })),
 
 
 )

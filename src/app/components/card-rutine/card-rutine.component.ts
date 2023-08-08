@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AppState, Routine, SavedRoutines } from 'src/app/core/models/app.model';
+import { addRoutine } from 'src/app/state/actions/counter.actions';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +16,7 @@ export class CardRutineComponent implements OnInit {
   public savedRoutines!: SavedRoutines;
   constructor(
     private router: Router,
+    private store: Store<{ count: AppState }>
   ) { }
 
 
@@ -32,12 +35,14 @@ export class CardRutineComponent implements OnInit {
 
   handleClickDelete(idRoutine: number) {
     const newSavedRoutine = this.savedRoutines.rutines.filter((routine: Routine) => routine.id != idRoutine);
-    
-    let data:SavedRoutines = {
+
+    let data: SavedRoutines = {
       rutines: newSavedRoutine
     }
     if (newSavedRoutine.length > 0) return localStorage.setItem('savedRoutines', JSON.stringify(data));
 
+    this.store.dispatch(addRoutine({ savedRoutines: data }));
+    
     localStorage.removeItem('savedRoutines');
 
     Swal.fire({
