@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addExercie, addRoutine, removeExercie } from '../actions/counter.actions';
+import { addExercie, addRoutine, removeExercie, resetExercie } from '../actions/counter.actions';
 import { AppState, Ejercicio } from 'src/app/core/models/app.model';
 
 
@@ -22,6 +22,8 @@ export const counterReducer = createReducer(
   on(removeExercie, (state, { ejercicio }) => ({ ...state, ejercicios: state.ejercicios.filter((exercie: Ejercicio) => exercie.id === ejercicio.id && exercie.type === ejercicio.type) })),
   
   on(addRoutine, (state, { savedRoutines }) => ({ ...state, savedRoutines })),
+
+  on(resetExercie, (state, { ejercicios }) => ({ ...state, ejercicios })),
 
 
 )

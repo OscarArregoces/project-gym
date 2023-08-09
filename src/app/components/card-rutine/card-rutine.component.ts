@@ -35,15 +35,18 @@ export class CardRutineComponent implements OnInit {
 
   handleClickDelete(idRoutine: number) {
     const newSavedRoutine = this.savedRoutines.rutines.filter((routine: Routine) => routine.id != idRoutine);
+    console.log(newSavedRoutine)
 
     let data: SavedRoutines = {
       rutines: newSavedRoutine
     }
-    if (newSavedRoutine.length > 0) return localStorage.setItem('savedRoutines', JSON.stringify(data));
+    if (newSavedRoutine.length > 0) {
+      localStorage.setItem('savedRoutines', JSON.stringify(data));
+    } else {
+      localStorage.removeItem('savedRoutines');
+    }
 
     this.store.dispatch(addRoutine({ savedRoutines: data }));
-    
-    localStorage.removeItem('savedRoutines');
 
     Swal.fire({
       position: 'top-end',
@@ -54,15 +57,3 @@ export class CardRutineComponent implements OnInit {
     })
   }
 }
-
-
-// this.store.select('count').subscribe((store: AppState) => {
-
-//   let storeSaveRoutines: SavedRoutines = store.savedRoutines;
-
-//   const newSavedRoutine = storeSaveRoutines.rutines.filter((routine: Routine) => routine.id != idRoutine);
-//   console.log(newSavedRoutine)
-//   if (newSavedRoutine.length > 0) return localStorage.setItem('savedRoutines', JSON.stringify(newSavedRoutine));
-
-//   localStorage.removeItem('savedRoutines');
-// });

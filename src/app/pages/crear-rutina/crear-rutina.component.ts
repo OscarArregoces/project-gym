@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
-import { saveExercie } from 'src/app/state/actions/counter.actions';
+import { resetExercie } from 'src/app/state/actions/counter.actions';
 
 import { ExercieServiceService } from 'src/app/core/services/exercie-service.service';
 import { Dias, Ejercicio, AppState, SavedRoutines, Routine } from 'src/app/core/models/app.model';
@@ -97,18 +97,19 @@ export class CrearRutinaComponent implements OnInit {
       ]
     }
 
-    if (this.ejerciciosStore.ejercicios.length <= 0){
-       Swal.fire({
+    if (this.ejerciciosStore.ejercicios.length <= 0) {
+      Swal.fire({
         icon: 'warning',
         title: 'Oops...',
         text: 'Selecciona al menos un ejercicio',
       });
 
       return
-    } 
+    }
 
     this.savedRoutines.rutines.push(currentRutine)
     localStorage.setItem('savedRoutines', JSON.stringify(this.savedRoutines))
+    this.store.dispatch(resetExercie({ ejercicios: [] }));
     Swal.fire({
       position: 'top-end',
       icon: 'success',
