@@ -51,7 +51,6 @@ export class EditarRutinaComponent implements OnInit, OnDestroy {
     this.store.select('count').subscribe((ejercicios) => this.ejerciciosStore = ejercicios);
 
     if (!this.savedRoutines) {
-      // this.router.navigateByUrl('')
       this.savedRoutines = { rutines: [] }
     }
 
@@ -102,7 +101,7 @@ export class EditarRutinaComponent implements OnInit, OnDestroy {
       id: this.currentId,
       titulo,
       dias,
-      fecha: this.getCurrentDate(),
+      fecha: `Editado el ${this.getCurrentDate()}`,
       rutina: [
         this.ejerciciosStore.ejercicios
       ]

@@ -37,7 +37,6 @@ export class CardRutineComponent implements OnInit {
 
   handleClickDelete(idRoutine: number) {
     const newSavedRoutine = this.savedRoutines.rutines.filter((routine: Routine) => routine.id != idRoutine);
-    console.log(newSavedRoutine)
 
     let data: SavedRoutines = {
       rutines: newSavedRoutine

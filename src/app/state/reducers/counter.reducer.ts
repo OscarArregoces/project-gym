@@ -13,7 +13,6 @@ export const initialState: AppState = {
 export const counterReducer = createReducer(
   initialState,
   on(addExercie, (state, { ejercicio }) => {
-    console.log('addExercie called')
     const exist: boolean = state.ejercicios.some((exercie: Ejercicio) => exercie.id === ejercicio.id && exercie.type === ejercicio.type);
     if (!exist) return { ...state, ejercicios: [...state.ejercicios, ejercicio] }
 
@@ -21,10 +20,7 @@ export const counterReducer = createReducer(
   }),
 
   on(addExercies, (state, { ejercicios }) => {
-    console.log('addExercies called')
-
     if (!ejercicios) return state
-
     return { ...state, ejercicios }
   }),
 

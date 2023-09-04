@@ -79,7 +79,7 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
       id: countId + 1,
       titulo,
       dias,
-      fecha: this.getCurrentDate(),
+      fecha: `Creado el ${this.getCurrentDate()}`,
       rutina: [
         this.ejerciciosStore.ejercicios
       ]
