@@ -1,30 +1,32 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { resetExercie } from 'src/app/state/actions/counter.actions';
-
+import { AppState, Dias, Ejercicio, Routine, SavedRoutines } from 'src/app/core/models/app.model';
 import { ExercieServiceService } from 'src/app/core/services/exercie-service.service';
-import { Dias, Ejercicio, AppState, SavedRoutines, Routine } from 'src/app/core/models/app.model';
-import { Router } from '@angular/router';
-import * as moment from 'moment';
+import { addExercies, resetExercie } from 'src/app/state/actions/counter.actions';
 import Swal from 'sweetalert2';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-crear-rutina',
-  templateUrl: './crear-rutina.component.html',
-  styleUrls: ['./crear-rutina.component.scss']
+  selector: 'app-editar-rutina',
+  templateUrl: './editar-rutina.component.html',
+  styleUrls: ['./editar-rutina.component.scss']
 })
-export class CrearRutinaComponent implements OnInit, OnDestroy {
+export class EditarRutinaComponent implements OnInit, OnDestroy {
+
+  public routine!: Routine | undefined;
+  public routinesDay!: string;
+  public savedRoutines!: SavedRoutines;
 
   public ejercicios: Ejercicio[] = [];
-  public savedRoutines!: SavedRoutines;
   public ejerciciosStore!: AppState;
   public dias: Dias[] = this.exercieService.dias
 
   public tipoEjercicio: string[] = this.exercieService.tipoEjercicio
 
   public currentDate!: string;
+  public currentId!: number;
 
   public form = new FormGroup({
     "titulo": new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -34,20 +36,49 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
 
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     public exercieService: ExercieServiceService,
     private store: Store<{ count: AppState }>,
-    private router: Router
   ) { }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
     moment.locale('es');
-    this.savedRoutines = JSON.parse(localStorage.getItem('savedRoutines') as string);
+    this.currentId = +this.route.snapshot.paramMap.get('idRoutine')!;
+
+    this.savedRoutines = JSON.parse(localStorage.getItem('savedRoutines')!);
     this.store.select('count').subscribe((ejercicios) => this.ejerciciosStore = ejercicios);
-    this.getCurrentDate();
+
+    if (!this.savedRoutines) {
+      // this.router.navigateByUrl('')
+      this.savedRoutines = { rutines: [] }
+    }
+
+
+    this.routine = this.savedRoutines.rutines.find((routine: Routine) => routine.id === this.currentId);
+
+
+    if (this.routine === undefined) {
+      this.router.navigateByUrl('')
+    }
+
+    this.form.patchValue(this.routine!)
+    this.store.dispatch(addExercies({ ejercicios: this.routine?.rutina[0] }))
+    this.getDaysParsed()
   }
 
   ngOnDestroy(): void {
     this.store.dispatch(resetExercie({ ejercicios: [] }))
+  }
+
+
+  getDaysParsed() {
+    if (this.routine != undefined) {
+      const diasNombres = this.routine.dias.map((elemento: any) => elemento.dia);
+      const cadenaDeDias = diasNombres.join(', ');
+      this.routinesDay = cadenaDeDias;
+    }
   }
 
   getCurrentDate(): string {
@@ -59,7 +90,6 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
 
 
   handleSutmit() {
-    let countId = 0
     const { titulo, dias } = this.form.value;
 
     if (!this.savedRoutines) {
@@ -67,16 +97,9 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
         "rutines": []
       }
     }
-    if (this.savedRoutines.rutines[this.savedRoutines.rutines.length - 1] === undefined) {
-      countId = 0;
-    } else {
-      countId = this.savedRoutines.rutines[this.savedRoutines.rutines.length - 1].id;
-    }
-
-
 
     let currentRutine: Routine = {
-      id: countId + 1,
+      id: this.currentId,
       titulo,
       dias,
       fecha: this.getCurrentDate(),
@@ -95,13 +118,17 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
       return
     }
 
+    const newSavedRoutines = this.savedRoutines.rutines.filter((routine: Routine) => routine.id !== this.currentId);
+
+    this.savedRoutines.rutines = newSavedRoutines;
     this.savedRoutines.rutines.push(currentRutine)
     localStorage.setItem('savedRoutines', JSON.stringify(this.savedRoutines))
+
     this.store.dispatch(resetExercie({ ejercicios: [] }));
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Creado correctamente',
+      title: 'Editado correctamente',
       showConfirmButton: false,
       timer: 1000
     })
@@ -116,5 +143,3 @@ export class CrearRutinaComponent implements OnInit, OnDestroy {
   }
 
 }
-
-

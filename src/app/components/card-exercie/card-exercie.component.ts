@@ -36,7 +36,6 @@ export class CardExercieComponent implements OnInit {
   }
 
   addExercie(): void {
-
     let newEjercicio: Ejercicio = { ...this.ejercicio, status: false };
     this.status = false;
     this.store.dispatch(addExercie({ ejercicio: newEjercicio }))

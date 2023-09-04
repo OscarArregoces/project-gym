@@ -23,6 +23,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { counterReducer } from './state/reducers/counter.reducer';
 import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CardDetailComponent } from './components/card-detail/card-detail.compon
     NavbarComponent,
     CardRutineComponent,
     CardDetailComponent,
+    EditarRutinaComponent,
   ],
   imports: [
     BrowserModule,

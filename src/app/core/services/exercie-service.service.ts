@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Dias } from '../models/app.model';
 
 @Injectable({
     providedIn: 'root'
@@ -120,4 +121,35 @@ export class ExercieServiceService {
             ]
         }
     };
+
+    public dias: Dias[] = [
+        { "dia": 'Lunes' },
+        { "dia": 'Martes' },
+        { "dia": 'Miercoles' },
+        { "dia": 'Jueves' },
+        { "dia": 'Viernes' },
+        { "dia": 'Sabado' },
+        { "dia": 'Domingo' },
+    ]
+
+    public tipoEjercicio: string[] = [
+        'Abdomen',
+        'Biceps',
+        'Espalda',
+        'Hombros',
+        'Pectoral',
+        'Piernas',
+        'Trapesio',
+        'Triceps',
+    ]
+
+    capitalizarPalabra(word: any) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }
+
+    formatearFechaHora(cadena: any) {
+        const cadenaCapitalizada = cadena.replace(/\w+/g, this.capitalizarPalabra);
+        const cadenaFormateada = cadenaCapitalizada.replace(" 2º ", " 2º ");
+        return cadenaFormateada.replace(/\b(am|pm)\b/gi, (match: any) => match.toUpperCase());
+    }
 }

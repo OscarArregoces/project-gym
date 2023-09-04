@@ -31,7 +31,9 @@ export class CardRutineComponent implements OnInit {
   handleClickShow() {
     this.router.navigateByUrl(`ver-rutina/${this.rutine.id}`);
   }
-  handleClickEdit() { }
+  handleClickEdit() {
+    this.router.navigateByUrl(`editar-rutina/${this.rutine.id}`);
+   }
 
   handleClickDelete(idRoutine: number) {
     const newSavedRoutine = this.savedRoutines.rutines.filter((routine: Routine) => routine.id != idRoutine);

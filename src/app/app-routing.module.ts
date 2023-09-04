@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CrearRutinaComponent } from './pages/crear-rutina/crear-rutina.component';
 import { VerRutinaComponent } from './pages/ver-rutina/ver-rutina.component';
+import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'ver-rutina/:idRoutine',
     component: VerRutinaComponent
+  },
+  {
+    path: 'editar-rutina/:idRoutine',
+    component: EditarRutinaComponent
   },
   {
     path: 'ejercicios',
