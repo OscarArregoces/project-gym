@@ -1,0 +1,47 @@
+.card {
+    border-radius: 5px;
+    background-color: white;
+}
+
+.card:hover {
+	box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+
+.card img {
+    border-radius: 5px 5px 0px 0px;
+	border-bottom: 1px solid black;
+    width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 320px) {
+	.card {
+		width: 15rem !important;
+		height: 22rem !important;
+	}
+}
+
+:host ::ng-deep {
+
+	.p-button.p-button-success:enabled:hover {
+		background: #635985;
+		border: 1px solid #635985;
+	}
+
+	.p-button.p-button-success:enabled {
+		background: #443C68;
+		border: 1px solid #443C68;
+	}
+
+	.p-button.p-button-success:enabled:active {
+		background: #443C68;
+		border: 1px solid #443C68;
+	}
+	.p-button.p-button-success:disabled {
+		background: #443C68;
+		border: 1px solid #443C68;
+	}
+
+}

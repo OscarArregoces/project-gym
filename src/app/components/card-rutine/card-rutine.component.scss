@@ -1,28 +1,26 @@
 .card-dashboard {
-    width: 25rem;
-    height: 30rem;
     border-radius: 5px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: transform 0.2s;
-    
 }
+
 .card-dashboard:hover {
-	transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 
 .card-dashboard img {
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid black;
     width: 100%;
     height: auto;
 }
-.card-dashboard h1 {
-    margin-top: 2rem;
-   font-size: 30px;
-   text-align: center;
-}
-.card-dashboard p {
-   font-size: 12px;
-   color: rgb(114, 114, 114);
-   text-align: center;
+
+
+@media (max-width: 320px) {
+	.card-dashboard {
+		width: 15rem !important;
+		height: 22rem !important;
+	}
 }

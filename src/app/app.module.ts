@@ -24,6 +24,9 @@ import { counterReducer } from './state/reducers/counter.reducer';
 import { CardRutineComponent } from './components/card-rutine/card-rutine.component';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
 import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.component';
+import { VerEjerciciosComponent } from './pages/ver-ejercicios/ver-ejercicios.component';
+import { DevInfoComponent } from './pages/dev-info/dev-info.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.compo
     CardRutineComponent,
     CardDetailComponent,
     EditarRutinaComponent,
+    VerEjerciciosComponent,
+    DevInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.compo
     DropdownModule,
     InputTextModule,
     MultiSelectModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

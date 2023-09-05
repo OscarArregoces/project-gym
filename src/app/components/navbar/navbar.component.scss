@@ -1,23 +1,27 @@
 nav{
     width: 100%;
     height: 5rem;
-    background: white;
+    background-color: #18122B;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 30px;
+    transition: transform 0.3s ease; 
 }
 nav a {
     text-decoration: none;
-    color: black;
-    // border: 1px solid black;
+    color: rgb(255, 255, 255);
     width: 100px;
     height: 50px;
     border-radius: 5px;
     display: grid;
     place-items: center;
 }
+// nav .inicio{
+//     font-size: 45px;
+// }
 
 nav a:hover{
-    background-color: black;
-    color: white;
+    transform: scale(1.1);
+    color: #635985;
 }

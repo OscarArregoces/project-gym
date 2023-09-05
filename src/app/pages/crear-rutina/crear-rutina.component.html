@@ -14,19 +14,18 @@
                     [formControl]="form.controls.ejercicios" (onChange)="onDropdownChange()"></p-dropdown>
             </div>
             <div class="col-12 md:col-6 lg:col-6 flex justify-content-center">
-                <button (click)="handleSutmit()" [disabled]="!form.valid" [style]="{'max-width':'400px', 'width':'100%'}" pButton pRipple
+                <button (click)="handleSutmit()" [disabled]="!form.valid"  [style]="{'max-width':'400px', 'width':'100%'}" pButton pRipple
                     label="Guardar" class="p-button-success"></button>
             </div>
         </div>
     </form>
 </p-card>
 
-<div *ngIf="ejercicios.length !==0 ;  else elseBlock " class="flex flex-wrap justify-content-center mt-5"
-    [style]="{'width': '80%', 'margin':'auto'}">
-    <div [style]="{ 'max-width': '25rem', 'margin':'5px' }" *ngFor="let ejercicio of ejercicios">
+<div *ngIf="ejercicios.length !==0 ;  else elseBlock " class="content-cards my-5">
+    <div *ngFor="let ejercicio of ejercicios">
         <app-card-exercie [ejercicio]="ejercicio"></app-card-exercie>
     </div>
 </div>
 <ng-template #elseBlock>
-    <p class="text-center my-5">Selecciona un tipo de ejercicio</p>
+    <p class="text-center text-white text-3xl md:text-3xl lg:text-3xl my-5">Selecciona un tipo de ejercicio</p>
 </ng-template>

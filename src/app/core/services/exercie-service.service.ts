@@ -40,7 +40,7 @@ export class ExercieServiceService {
                 { 'id': 4, 'type': 'Espalda', 'name': 'Dominada', 'img': 'assets/image_ejercicios/espalda/4.jpg' },
                 { 'id': 5, 'type': 'Espalda', 'name': 'Expulsar el simulador Hummer', 'img': 'assets/image_ejercicios/espalda/5.jpg' },
                 { 'id': 6, 'type': 'Espalda', 'name': 'Extremo de los brazos rectos delbloque superior', 'img': 'assets/image_ejercicios/espalda/6.jpg' },
-                { 'id': 7, 'type': 'Espalda', 'name': 'Fila doblada de barbel', 'img': 'assets/image_ejercicios/espalda/7.jpg' },
+                { 'id': 7, 'type': 'Espalda', 'name': 'Fila doblada de barbel', 'img': 'assets/image_ejercicios/espalda/7.png' },
                 { 'id': 8, 'type': 'Espalda', 'name': 'Impulso horizontal sobre el simulador', 'img': 'assets/image_ejercicios/espalda/8.jpg' },
                 { 'id': 9, 'type': 'Espalda', 'name': 'Levantando timbre en la mano', 'img': 'assets/image_ejercicios/espalda/9.jpg' },
                 { 'id': 10, 'type': 'Espalda', 'name': 'Maquina de agarre invertida', 'img': 'assets/image_ejercicios/espalda/10.jpg' },
@@ -111,13 +111,13 @@ export class ExercieServiceService {
                 { 'id': 2, 'type': 'Triceps', 'name': 'CableV BarTricepsPushdown', 'img': 'assets/image_ejercicios/triceps/2.jpg' },
                 { 'id': 3, 'type': 'Triceps', 'name': 'Dumbbell Kickback copy 1', 'img': 'assets/image_ejercicios/triceps/3.jpg' },
                 { 'id': 4, 'type': 'Triceps', 'name': 'Dumbell Triceps Extension', 'img': 'assets/image_ejercicios/triceps/4.jpg' },
-                { 'id': 5, 'type': 'Triceps', 'name': 'Extensión de una mano con una pesa de gimnasia detrás de la cabeza', 'img': 'assets/image_ejercicios/triceps/5.jpg' },
+                { 'id': 5, 'type': 'Triceps', 'name': 'Extensión de una mano con pesa detrás de la cabeza', 'img': 'assets/image_ejercicios/triceps/5.jpg' },
                 { 'id': 6, 'type': 'Triceps', 'name': 'Extension de barra tricep', 'img': 'assets/image_ejercicios/triceps/6.jpg' },
                 { 'id': 7, 'type': 'Triceps', 'name': 'Extension de tricep con cable agarre neutro', 'img': 'assets/image_ejercicios/triceps/7.jpg' },
                 { 'id': 8, 'type': 'Triceps', 'name': 'Extension de Triceps seleccionada', 'img': 'assets/image_ejercicios/triceps/8.jpg' },
                 { 'id': 9, 'type': 'Triceps', 'name': 'Presion alternativa de doblaje con la muñeca girada', 'img': 'assets/image_ejercicios/triceps/9.jpg' },
                 { 'id': 10, 'type': 'Triceps', 'name': 'Tricep en banco', 'img': 'assets/image_ejercicios/triceps/10.jpg' },
-                { 'id': 11, 'type': 'Triceps', 'name': 'Extensiones de tríceps sentado por encima de la cabeza con dos brazos', 'img': 'assets/image_ejercicios/triceps/11.jpg' },
+                { 'id': 11, 'type': 'Triceps', 'name': 'Extensión de tríceps sentado por encima de la cabeza', 'img': 'assets/image_ejercicios/triceps/11.jpg' },
             ]
         }
     };

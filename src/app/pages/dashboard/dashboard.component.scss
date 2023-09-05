@@ -1,41 +1,51 @@
-#slogan {
-    font-size: 50px;
+h1{
+	animation-name: aparecerTexto; 
+    animation-duration: 0.5s; 
+    animation-delay: 0.5s; 
+    animation-fill-mode: both;
+}
+
+.content-cards {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	place-items: center;
+	grid-gap: 30px;
 }
 
 .card-dashboard {
-    border-radius: 5px;
-    width: 25rem;
-    height: 30rem;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	transition: transform 0.2s;
 }
+
 .card-dashboard:hover {
-	transform: scale(1.1); 
+	transform: scale(1.1);
 }
 
-.container-cardNoRoutines .card-dashboard{
-    animation: agrandar 2s normal;
+.container-cardNoRoutines .card-dashboard {
+	animation: agrandar 2s normal;
 }
 
 .card-dashboard img {
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
+	border-radius: 5px 5px 0px 0px;
+	width: 100%;
+	height: auto;
 }
 
-.container-cardNoRoutines{
-    display: grid;
-    place-items: center;
+.container-cardNoRoutines {
+	display: grid;
+	place-items: center;
 }
 
 
-.container-btnAdd{
+.container-btnAdd {
 	width: 100%;
 	height: calc(480px - 285px);
 	display: grid;
 	place-items: center;
 }
+
 @keyframes agrandar {
 	0% {
 		animation-timing-function: ease-in;
@@ -78,7 +88,61 @@
 		transform: translateY(0px);
 	}
 }
+@keyframes aparecerTexto {
+    0% {
+        opacity: 0;
+    }
 
-// :host ::ng-deep .p-button-secondary{
-//     background-color: red;
-// }
+    100% {
+        opacity: 1; 
+    }
+}
+
+
+
+:host ::ng-deep {
+
+	.p-button.p-button-secondary:enabled:hover {
+		background: #635985;
+		border: 1px solid #635985;
+	}
+
+	.p-button.p-button-secondary:enabled {
+		background: #443C68;
+		border: 1px solid #443C68;
+	}
+
+	.p-button.p-button-secondary:enabled:active {
+		background: #443C68;
+		border: 1px solid #443C68;
+	}
+
+}
+
+@media (max-width: 320px) {
+	.card-dashboard {
+		width: 15rem !important;
+		height: 22rem !important;
+	}
+}
+@media (min-width: 320px) and (max-width: 428px) {
+	.content-cards {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (min-width: 429px) and (max-width: 768px) {
+	.content-cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+	.content-cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1700px) {
+	.content-cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

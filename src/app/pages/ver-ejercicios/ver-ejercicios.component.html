@@ -1,0 +1,8 @@
+<div class="col-12">
+    <h1 class="text-center text-white text-4xl  md:text-6xl lg:text-7xl">¡ Todos nuestros ejercicios aquí !</h1>
+</div>
+<div *ngIf="ejercicios.length !==0" class="content-cards my-5">
+    <div *ngFor="let ejercicio of obtenerTodosLosEjercicios()">
+        <app-card-detail [ejercicio]="ejercicio"></app-card-detail>
+    </div>
+</div>

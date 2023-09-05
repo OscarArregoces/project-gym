@@ -1,14 +1,10 @@
-<p-card class="text-center" [style]="{ 'max-width': '25rem' }">
-    <ng-template pTemplate="header">
-        <img title="Ejercicio" alt="Ejercicio" [src]="ejercicio.img" />
-        <h1>{{ ejercicio.type}}</h1>
-    </ng-template>
+<div class="card text-center w-20rem h-25rem md:w-20rem md:h-25rem lg:w-25rem lg:h-30rem">
+    <img title="Ejercicio" alt="Ejercicio" [src]="ejercicio.img" />
+    <h1 class="my-2 text-center text-2xl ">{{ ejercicio.name}}</h1>
+
     <div>
         <p-button  [disabled]="!status" (onClick)="addExercie()" icon="pi pi-check" styleClass="p-button-success"></p-button>
         <p-button  [disabled]="status" (onClick)="removeExercie()" icon="pi pi-times" styleClass="p-button-danger"
             [style]="{ 'margin-left': '.5em' }"></p-button>
     </div>
-</p-card>
-
-<!-- [style]="{'display': status ? 'block':'none'}"
-[style]="{'display': status ? 'none':'block'}" -->
+</div>

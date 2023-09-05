@@ -5,6 +5,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CrearRutinaComponent } from './pages/crear-rutina/crear-rutina.component';
 import { VerRutinaComponent } from './pages/ver-rutina/ver-rutina.component';
 import { EditarRutinaComponent } from './pages/editar-rutina/editar-rutina.component';
+import { VerEjerciciosComponent } from './pages/ver-ejercicios/ver-ejercicios.component';
+import { DevInfoComponent } from './pages/dev-info/dev-info.component';
 
 
 const routes: Routes = [
@@ -26,11 +28,11 @@ const routes: Routes = [
   },
   {
     path: 'ejercicios',
-    component: VerRutinaComponent
+    component: VerEjerciciosComponent
   },
   {
     path: 'dev-info',
-    component: VerRutinaComponent
+    component: DevInfoComponent
   }
 ];
 

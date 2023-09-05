@@ -2,7 +2,7 @@
     <div class="content-info p-3  flex flex-column align-items-start md:flex md:flex-column md:align-items-start  lg:flex lg:flex-row lg:align-items-center ">
         <p class="text-sm md:text-lg lg:text-2xl"><strong>Titulo: </strong> {{routine.titulo}}</p>
         <p class="text-sm md:text-lg lg:text-2xl"><strong>Días: </strong> {{routinesDay}}</p>
-        <p-button icon="pi pi-cloud-download" label="Descargar" title="Descargar" styleClass="p-button-raised p-button-success"></p-button>
+        <p-button icon="pi pi-cloud-download" (click)="generatePDF()" label="Descargar" title="Descargar" styleClass="p-button-raised p-button-success"></p-button>
     </div>
     <div class="col-12 flex flex-wrap">
         <div class="m-auto" *ngFor="let ejercicios of routine.rutina[0]">
