@@ -46,7 +46,6 @@ export class VerRutinaComponent implements OnInit {
   }
 
   generatePDF() {
-    // const bodyToPdf = document.querySelector('.main-content');
     html2canvas(document.querySelector('.main-content')!).then(canvas => {
       const contentDataURL = canvas.toDataURL('image/png')
       let pdf = new jsPDF('p', 'mm', 'a4');
