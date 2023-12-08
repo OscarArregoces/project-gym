@@ -1,4 +1,4 @@
-# 💻 Project-Gym 💪
+# 💪 Project-Gym 
 
 Purely frontend project to create gym routines quickly and easily.
 
